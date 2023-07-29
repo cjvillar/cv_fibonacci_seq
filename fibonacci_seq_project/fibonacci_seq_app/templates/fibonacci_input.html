@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Sequence</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="n">Enter a number (n):</label>
+        <input type="number" min=”0” name="n" id="n" required>
+        <button type="submit">Get Fibonacci Sequence</button>
+    </form>
+</body>
+</html>
