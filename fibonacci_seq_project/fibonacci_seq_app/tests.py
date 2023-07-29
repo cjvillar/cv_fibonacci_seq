@@ -20,7 +20,14 @@ class FibonacciViewTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<label for="n">Enter a number (n):</label>')
         self.assertContains(
-            response, '<input type="number" min=”0” name="n" id="n" required>'
+            response, '<input type="number" min=”0” max="900" name="n" id="n" required>'
+        )
+
+    def test_fibonacci_input_error(self):
+        response = self.client.post("", {"n": "-5"})
+        # check if response contains error message
+        self.assertContains(
+            response, "Please enter a non-negative number.", status_code=200
         )
 
     def test_fibonacci_output_view(self):
