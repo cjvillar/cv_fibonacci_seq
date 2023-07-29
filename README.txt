@@ -9,5 +9,4 @@ python manage.py test
 
 #TODO:
 
-- Finish calculate_fibonacci.py
-- Add test for views/models
+- Add back button fibonacci_output.html
