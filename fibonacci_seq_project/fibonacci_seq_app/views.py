@@ -3,27 +3,13 @@ from .models import FibonacciNumber
 from .calculate_fibonacci import calculate_fibonacci
 
 
-def n_is_non_negative_number(value):
-    # ensure input value is not negative
-    try:
-        n = int(value)
-        return n >= 0
-    except ValueError:
-        return False
-
-
 def fibonacci_input_view(request):
-    error_message = None
+    # error_message = None
     if request.method == "POST":
-        n = request.POST.get("n")
-        if n_is_non_negative_number(n):
-            n = int(n)
-            fibonacci_sequence = calculate_fibonacci(n)
-            return redirect("fibonacci_output_view", pk=n)
-        else:
-            error_message = "Please enter a non-negative number."
-
-    return render(request, "fibonacci_input.html", {"error_message": error_message})
+        n = int(request.POST.get("n"))
+        fibonacci_sequence = calculate_fibonacci(n)
+        return redirect("fibonacci_output_view", pk=n)
+    return render(request, "fibonacci_input.html")
 
 
 def fibonacci_output_view(request, pk):
