@@ -8,16 +8,28 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='FibonacciNumber',
+            name="FibonacciNumber",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('n', models.PositiveIntegerField(validators=[django.core.validators.MinValueValidator(0)])),
-                ('fibonacci_sequence', models.TextField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "n",
+                    models.PositiveIntegerField(
+                        validators=[django.core.validators.MinValueValidator(0)]
+                    ),
+                ),
+                ("fibonacci_sequence", models.TextField()),
             ],
         ),
     ]
