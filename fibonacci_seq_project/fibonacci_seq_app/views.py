@@ -7,11 +7,9 @@ def n_is_non_negative_number(value):
     # ensure input value is not negative
     try:
         n = int(value)
-        if n >= 0:
-            return True
+        return n >= 0
     except ValueError:
-        pass
-    return False
+        return False
 
 
 def fibonacci_input_view(request):
