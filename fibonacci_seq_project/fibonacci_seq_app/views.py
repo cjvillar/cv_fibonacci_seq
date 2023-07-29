@@ -14,6 +14,8 @@ def fibonacci_input_view(request):
 def fibonacci_output_view(request, pk):
     fibonacci_entry_seq = FibonacciNumber.objects.filter(n=pk).first()
     fibonacci_sequence = fibonacci_entry_seq.fibonacci_sequence.split(",")
+    #get previous page using HTTP_REFERER
+    back_url = request.META.get("HTTP_REFERER", "/")
     return render(
-        request, "fibonacci_output.html", {"fibonacci_sequence": fibonacci_sequence}
+        request, "fibonacci_output.html", {"fibonacci_sequence": fibonacci_sequence, "back_url": back_url}
     )
