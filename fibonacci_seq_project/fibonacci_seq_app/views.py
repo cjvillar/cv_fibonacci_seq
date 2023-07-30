@@ -4,7 +4,6 @@ from .calculate_fibonacci import calculate_fibonacci
 
 
 def fibonacci_input_view(request):
-    # error_message = None
     if request.method == "POST":
         n = int(request.POST.get("n"))
         fibonacci_sequence = calculate_fibonacci(n)
