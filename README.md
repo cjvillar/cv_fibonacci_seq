@@ -3,7 +3,7 @@
 A Django web app to calculate the fibonacci sequence for all the terms up to the given nth term. 
 The ouput sequence is saved in an SQLite database and used to prevent redundant calculations. 
 
-The maximum nth term that will produce a sequence is set to 900 to help prevent crashing due to max recursion depth limit. 
+The maximum nth term limit is set 1000 in the html form. 
 
 I chose Django because it comes with a lot of included functionality, like the Django ORM, it's scalable and relatively easy to get started with. 
 
