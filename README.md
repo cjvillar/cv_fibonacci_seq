@@ -1,4 +1,5 @@
 # fibonacci_seq_app
+* Note: I did this for a take home coding assignment. 
 
 A Django web app to calculate the fibonacci sequence for all the terms up to the given nth term. 
 The ouput sequence is saved in an SQLite database and used to prevent redundant calculations. 
@@ -40,7 +41,7 @@ select * from fibonacci_seq_app_fibonaccinumber;
 ```
 
 ## Folder structure:
-
+```bash
 ├── README.md
 ├── fibonacci_seq_project
 │   ├── db.sqlite3
@@ -67,3 +68,4 @@ select * from fibonacci_seq_app_fibonaccinumber;
 │   │   └── wsgi.py
 │   └── manage.py
 └── requirements.txt
+```
