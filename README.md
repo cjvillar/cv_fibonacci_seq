@@ -25,6 +25,20 @@ python manage.py runserver
 python manage.py test
 ```
 
+
+## Notes:
+When working with sqlite3 and large data such as big fibonacci Sequences
+use PRAGMA auto_vacuum = 2; when deleting the fibonacci_seq_app_fibonaccinumber table 
+
+```bash
+PRAGMA auto_vacuum; // check status, if 0 set to 2
+PRAGMA auto_vacuum = 2;
+```
+```bash
+delete from fibonacci_seq_app_fibonaccinumber;
+select * from fibonacci_seq_app_fibonaccinumber;
+```
+
 ## Folder structure:
 
 ├── README.md
