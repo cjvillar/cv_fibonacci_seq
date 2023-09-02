@@ -1,3 +1,11 @@
+"""
+
+Improvments:
+- removed request.META.get("HTTP_REFERER", "/") from back button 
+and now use request.session.get("previous_url", "/")
+
+"""
+
 from django.shortcuts import render, redirect
 from .models import FibonacciNumber
 from .calculate_fibonacci import calculate_fibonacci
@@ -14,8 +22,10 @@ def fibonacci_input_view(request):
 def fibonacci_output_view(request, pk):
     fibonacci_entry_seq = FibonacciNumber.objects.filter(n=pk).first()
     fibonacci_sequence = fibonacci_entry_seq.fibonacci_sequence.split(",")
-    # get previous page using HTTP_REFERER
-    back_url = request.META.get("HTTP_REFERER", "/")
+    
+    # get previous URL 
+    back_url = request.session.get("previous_url", "/")
+
     return render(
         request,
         "fibonacci_output.html",
