@@ -30,6 +30,17 @@ def get_existing_fibonacci(n):
     return fibonacci_entry_seq.fibonacci_sequence if fibonacci_entry_seq else None
 
 
+def save_fibonacci_sequence(i, fibonacci_sequence):
+    # store the Fibonacci sequence for n in the database
+    fibonacci_sequence_str = ",".join(map(str, fibonacci_sequence))
+    try:
+        with transaction.atomic():
+            FibonacciNumber.objects.create(
+                n=i, fibonacci_sequence=fibonacci_sequence_str
+            )
+    except DatabaseError as e:
+        transaction.set_rollback(True)
+
 def calculate_fibonacci_sequence(n):
     # get the latest sequence from the database to build the next sequence
     last_seq = FibonacciNumber.objects.latest("n")
@@ -41,20 +52,9 @@ def calculate_fibonacci_sequence(n):
         next_num = num_0 + num_1
         fibonacci_sequence.append(next_num)
         num_0, num_1 = num_1, next_num
+        save_fibonacci_sequence(i, fibonacci_sequence)
 
     return fibonacci_sequence
-
-
-def save_fibonacci_sequence(n, fibonacci_sequence):
-    # store the Fibonacci sequence for n in the database
-    fibonacci_sequence_str = ",".join(map(str, fibonacci_sequence))
-    try:
-        with transaction.atomic():
-            FibonacciNumber.objects.create(
-                n=n, fibonacci_sequence=fibonacci_sequence_str
-            )
-    except DatabaseError as e:
-        transaction.set_rollback(True)
 
 
 def calculate_fibonacci(n):
@@ -70,6 +70,6 @@ def calculate_fibonacci(n):
     fibonacci_sequence = calculate_fibonacci_sequence(n)
 
     # save the Fibonacci sequence in the database
-    save_fibonacci_sequence(n, fibonacci_sequence)
+    #save_fibonacci_sequence(n, fibonacci_sequence)
 
     return ",".join(map(str, fibonacci_sequence))
