@@ -14,7 +14,7 @@ from .calculate_fibonacci import calculate_fibonacci
 def fibonacci_input_view(request):
     if request.method == "POST":
         n = int(request.POST.get("n"))
-        fibonacci_sequence = calculate_fibonacci(n)
+        calculate_fibonacci(n)
         return redirect("fibonacci_output_view", pk=n)
     return render(request, "fibonacci_input.html")
 
