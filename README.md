@@ -20,12 +20,14 @@ cd fibonacci_seq_project
 python manage.py runserver
 ```
 
-
 ## Run Test:
 ```bash
 python manage.py test
 ```
-
+## Run shell:
+```bash
+python manage.py shell
+```
 
 ## Notes:
 When working with sqlite3 and large data such as big Fibonacci sequences
@@ -35,6 +37,7 @@ use PRAGMA auto_vacuum = 2; when deleting the fibonacci_seq_app_fibonaccinumber 
 PRAGMA auto_vacuum; // check status, if 0 set to 2
 PRAGMA auto_vacuum = 2;
 ```
+
 ```bash
 delete from fibonacci_seq_app_fibonaccinumber;
 select * from fibonacci_seq_app_fibonaccinumber;
