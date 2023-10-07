@@ -1,15 +1,15 @@
 # fibonacci_seq_app
-* Note: I did this for a take home coding assignment. 
+**Note: I did this for a take-home coding assignment.**
 
-A Django web app to calculate the fibonacci sequence for all the terms up to the given nth term. 
-The ouput sequence is saved in an SQLite database and used to prevent redundant calculations. 
+A Django web app to calculate the Fibonacci sequence for all the terms up to the given nth term. 
+The output sequence is saved in an SQLite database to prevent redundant calculations. 
 
-The maximum nth term limit is set 1000 in the html form. 
+The maximum nth term limit is set to 1000 in the HTML form. 
 
 I chose Django because it comes with a lot of included functionality, like the Django ORM, it's scalable and relatively easy to get started with. 
 
 
-## Start Up Instructions
+## Start-Up Instructions
 
 ```bash
 cd cv_fibonacci_seq
@@ -28,7 +28,7 @@ python manage.py test
 
 
 ## Notes:
-When working with sqlite3 and large data such as big fibonacci Sequences
+When working with sqlite3 and large data such as big Fibonacci sequences
 use PRAGMA auto_vacuum = 2; when deleting the fibonacci_seq_app_fibonaccinumber table 
 
 ```bash
