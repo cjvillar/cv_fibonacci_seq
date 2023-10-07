@@ -1,4 +1,4 @@
-# fibonacci_seq_app
+# fibonacci_seq_app  ![Unit test](https://github.com/cjvillar/cv_fibonacci_seq/actions/workflows/django.yml/badge.svg)
 **Note: I did this for a take-home coding assignment.**
 
 A Django web app to calculate the Fibonacci sequence for all the terms up to the given nth term. 
